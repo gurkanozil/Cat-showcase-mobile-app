@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import { View, Animated, TouchableOpacity, StyleSheet } from 'react-native';
-import * as Haptics from 'expo-haptics';
 
 const Zeytin = () => {
+  // State for eye animation
   const [eyeAnimation] = useState(new Animated.Value(1));
+  // State for pupil animation
   const [pupilAnimation] = useState(new Animated.Value(1));
 
+  /**
+   * Triggers the eye animation
+   */
   const animateEyes = () => {
-    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
 
+    // Animate eyes closing and opening
     Animated.sequence([
       Animated.timing(eyeAnimation, {
         toValue: 0,
@@ -20,11 +24,14 @@ const Zeytin = () => {
         duration: 1000,
         useNativeDriver: false,
       }),
-    ]).start(() => {
-    });
+    ]).start(() => {});
   };
 
+  /**
+   * Triggers the pupil animation.
+   */
   const animatePupils = () => {
+    // Animate pupils moving
     Animated.sequence([
       Animated.timing(pupilAnimation, {
         toValue: 0.5,
@@ -39,6 +46,7 @@ const Zeytin = () => {
     ]).start();
   };
 
+  // Styles for the eyes
   const eyeStyle = {
     height: eyeAnimation.interpolate({
       inputRange: [0, 1],
@@ -52,6 +60,7 @@ const Zeytin = () => {
     alignItems: 'center',
   };
 
+  // Styles for the pupils
   const pupilStyle = {
     height: pupilAnimation.interpolate({
       inputRange: [0, 1],
@@ -65,6 +74,7 @@ const Zeytin = () => {
     borderRadius: 12.5,
   };
 
+  // Render the animated cat eyes with ears
   return (
     <TouchableOpacity onPress={() => {
       animateEyes();

@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import { View, Animated, TouchableOpacity, StyleSheet } from 'react-native';
 
+/**
+ * A component that renders a cute cat face with eyes that blink and pupils that move.
+ * When the user presses the component, the eyes blink and the pupils move.
+ */
 const Huzur = () => {
   const [eyeAnimation] = useState(new Animated.Value(1));
   const [pupilAnimation] = useState(new Animated.Value(1));
 
+  /**
+   * Animate the eyes closing and opening.
+   */
   const animateEyes = () => {
     Animated.sequence([
       Animated.timing(eyeAnimation, {
@@ -21,6 +28,9 @@ const Huzur = () => {
     });
   };
 
+  /**
+   * Animate the pupils moving.
+   */
   const animatePupils = () => {
     Animated.sequence([
       Animated.timing(pupilAnimation, {
@@ -36,6 +46,15 @@ const Huzur = () => {
     ]).start();
   };
 
+  /**
+   * Generate the style for the eyes.
+   * The height of the eye is animated with the value of `eyeAnimation`
+   * The width of the eye is fixed at 50.
+   * The background color of the eye is orange.
+   * The border radius of the eye is 25.
+   * The margin of the eye is 5.
+   * The justifyContent and alignItems of the eye is 'center'
+   */
   const eyeStyle = {
     height: eyeAnimation.interpolate({
       inputRange: [0, 1],
@@ -49,6 +68,13 @@ const Huzur = () => {
     alignItems: 'center',
   };
 
+  /**
+   * Generate the style for the pupils.
+   * The height of the pupil is animated with the value of `pupilAnimation`
+   * The width of the pupil is animated with the value of `pupilAnimation`
+   * The background color of the pupil is black.
+   * The border radius of the pupil is 15.
+   */
   const pupilStyle = {
     height: pupilAnimation.interpolate({
       inputRange: [0, 1],
@@ -62,6 +88,9 @@ const Huzur = () => {
     borderRadius: 15,
   };
 
+  /**
+   * Render the component.
+   */
   return (
     <TouchableOpacity onPress={() => {
       animateEyes();
