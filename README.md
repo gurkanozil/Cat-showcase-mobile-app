@@ -1,10 +1,10 @@
 # Cat Showcase App
 
-Welcome to the Cat Showcase App! This mobile application is designed to showcase our two beloved cats, Huzur and Zeytin. Inspired by my wife, I wanted to create an engaging way to display their adorable antics and personalities using mobile elements.
+Welcome to the Cat Showcase App! This mobile application is designed to showcase animations of our two beloved cats, Huzur and Zeytin. Inspired by my wife, I wanted to create an engaging way to display their adorable antics and personalities using mobile elements.
 
 ## Purpose
 
-The purpose of this app is to provide a fun and interactive experience for users to learn more about our cats. It utilizes React Native and Expo Go, allowing for a smooth development process and easy deployment on my iPhone. The app aims to bring joy to cat lovers and provide a platform for sharing the unique traits of Huzur and Zeytin.
+The purpose of this app is to provide a fun and interactive experience about our cats. It utilizes React Native and Expo Go, allowing for a smooth development process and easy deployment on my iPhone. The app aims to bring joy to cat lovers and provide a platform for sharing the unique traits of Huzur and Zeytin.
 
 ## Features
 
