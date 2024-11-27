@@ -1,11 +1,18 @@
 import React, { useState } from 'react';
-import { View, Animated, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Animated, TouchableOpacity, StyleSheet, Vibration } from 'react-native';
 
 const Huzur = () => {
   const [eyeAnimation] = useState(new Animated.Value(1));
   const [pupilAnimation] = useState(new Animated.Value(1));
 
+  // Vibration duration variables (in milliseconds)
+  const vibrationPause = 5; // Pause duration between vibrations
+  const vibrationDuration = 1000; // Total duration for the vibration effect
+
   const animateEyes = () => {
+    // Start vibration with a pattern
+    Vibration.vibrate([vibrationPause, vibrationDuration], true);
+
     Animated.sequence([
       Animated.timing(eyeAnimation, {
         toValue: 0,
@@ -17,7 +24,10 @@ const Huzur = () => {
         duration: 1000,
         useNativeDriver: false,
       }),
-    ]).start();
+    ]).start(() => {
+      // Stop vibration after animation completes
+      Vibration.cancel();
+    });
   };
 
   const animatePupils = () => {
