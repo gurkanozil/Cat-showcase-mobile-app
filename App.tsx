@@ -1,6 +1,6 @@
 import { StyleSheet, View, Text } from 'react-native';
-import Zeytin from './app/(tabs)/Zeytin';
-import Huzur from './app/(tabs)/Huzur';
+import Zeytin from './components/Zeytin';
+import Huzur from './components/Huzur';
 
 /**
  * The main screen of the app.

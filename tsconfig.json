@@ -2,6 +2,6 @@
   "compilerOptions": {},
   "extends": "expo/tsconfig.base",
   "include": [
-    "app/**/*"
+    "components/**/*"
   ]
 }
