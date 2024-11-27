@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
 import { View, Animated, TouchableOpacity, StyleSheet } from 'react-native';
+import * as Haptics from 'expo-haptics';
 
 const Zeytin = () => {
   const [eyeAnimation] = useState(new Animated.Value(1));
   const [pupilAnimation] = useState(new Animated.Value(1));
 
   const animateEyes = () => {
+    Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Heavy);
+
     Animated.sequence([
       Animated.timing(eyeAnimation, {
         toValue: 0,
@@ -17,7 +20,8 @@ const Zeytin = () => {
         duration: 1000,
         useNativeDriver: false,
       }),
-    ]).start();
+    ]).start(() => {
+    });
   };
 
   const animatePupils = () => {
